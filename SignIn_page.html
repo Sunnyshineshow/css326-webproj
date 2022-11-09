@@ -42,7 +42,10 @@
       width: 40%;
       height: 50px;
       background-color: #white;
-      
+      display: flex;
+      margin: auto;
+      width: 50%;
+      padding: 10px;
     }
 
     .Usernamenpass_textbox:hover {
@@ -50,6 +53,26 @@
       color: #827676;
       border: 2px solid #827676;
     }
+
+    .submit_button {
+      width: 25%;
+      height: 50px;
+      background-color: #E4960E;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 25px;
+      font: bold;
+      display: flex;
+      margin: auto;
+      width: 20%;
+      padding: 10px;
+    }
+
+    .submit_button:hover {
+      background-color: white;
+      color: black;
+      border: 2px solid #000000;
+    }
+    
 
     footer {
       font-family: Arial, Helvetica, sans-serif;
@@ -72,11 +95,18 @@
       ><button class="header_button"><strong>Books</strong></button
       ><button class="header_button"><strong>Login</strong></button>
     </div>
-
+    <div>
+        <br><input class="Usernamenpass_textbox" type="text" placeholder="Username"><br><br>
+        <input class="Usernamenpass_textbox" type="text" placeholder="Password">
+    </div>
+    <div style="text-align: center;">
+      <br>
+      <button class="submit_button">log in </button>
+      <a href="">Forget the password</a>
+    </div>
 
     <div>
-        <input class="Usernamenpass_textbox" type="text" placeholder="Username"><br><br>
-        <input class="Usernamenpass_textbox" type="text" placeholder="Password">
+      <button class="Usernamenpass_textbox"><strong>Sign up</strong></button
     </div>
 
   </body>
