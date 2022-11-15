@@ -42,25 +42,26 @@
       font-family: Arial, Helvetica, sans-serif;
       width: 100%;
       background-color: #1c3948;
-
       color: #e4960e;
       font-size: 30px;
+      position: fixed;
       bottom: 0px;
     }
     .subhead {
       width: auto;
       padding: 20px 10px 0 20px;
 
-      margin-bottom: 150px;
+      margin-bottom: 10px;
 
       transition-duration: 0.4s;
       font: 30px Arial, sans-serif;
     }
-    #announcement {
+    #announcement, #newbook{
       font-weight: bold;
+        margin-bottom: 10px;
     }
 
-    ul {
+    ul{
       list-style-type: none;
       width: 25%;
       margin: 0;
@@ -68,12 +69,37 @@
       overflow: hidden;
       background-color: #eba92a;
     }
-    label {
-      background: #e4960e;
-      margin: 0 3% 0 4%;
-      padding: 140px 50px 0;
-      text-decoration: underline;
+    a{
+        text-decoration: none;
+        text-align: justify;
+        margin-right: 130px;
     }
+    .announcementlink{
+        text-align: center;
+        margin: auto;
+    }
+    img{
+        padding: 10px;
+        align-content: center;
+    }
+    html{
+        scroll-behavior: smooth;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+    label{
+        text-decoration: none;
+        text-align: justify;
+        width: 199px;
+        margin-right: 130px;
+    }
+    figure{
+        display: inline-block;
+    }
+    figcaption{
+        text-align: center;
+    }
+
   </style>
   <header>
     <div style="padding: 20px">Librariann</div>
@@ -85,17 +111,57 @@
       ><button class="header_button"><strong>Books</strong></button
       ><button class="header_button"><strong>Login</strong></button>
     </div>
-    <div class="subhead">
-      <div class="subhead" id="announcement">Announcement</div>
-      <img
-        src="\xampp\htdocs\css326\assets\library-design.jpg"
-        style="width: 199px; height: 257px"
-      />
-      <label>Title 1</label>
-      <label>Title 2</label>
-      <label>Title 3</label>
-      <label>Title 4</label>
-      <label>Title 5</label>
+        <div class="subhead" id="announcement">Announcement</div>
+    <marquee>
+        <figure>
+            <img src="\css326\assets\400.png" style="width: 250px;height: 168px">
+            <a href="https://library.siit.tu.ac.th/blog/2022/01/siit-library-prevention-of-covid19"><figcaption>SIIT Library: Prevention of COVID-19</figcaption></a>
+        </figure>
+        <figure>
+            <img src="\css326\assets\760.png" style="width: 250px;height: 172px">
+            <a href="https://library.siit.tu.ac.th/th/blog/2022/09/openathens"><figcaption>OpenAthens</figcaption></a>
+        </figure>
+        <figure>
+            <img src="\css326\assets\112.png" style="width: 250px;height: 193px">\
+            <a href="https://library.siit.tu.ac.th/th/blog/2022/11/data-science-from-scratch--first-principles-with-python"><figcaption>Top Book Borrowed!</figcaption></a>
+        </figure>
+        <figure>
+            <img src="\css326\assets\132.png" style="width: 250px;height: 133px">
+            <a href="https://library.siit.tu.ac.th/blog/2022/07/newscenter"><figcaption>NEWSCenter</figcaption></a>
+        </figure>
+        <figure>
+            <img src="\css326\assets\100.png" style="width: 250px;height: 136px">
+            <a href="https://library.siit.tu.ac.th/blog/2021/10/ethesis-format-checking-services"><figcaption>E-thesis format checking services</figcaption></a>
+        </figure>
+    </marquee>
+        <br>
+
+    <div>
+        <div class="subhead" id="newbook">New Book Arrived !!!</div>
+        <figure>
+            <img src="\css326\assets\123.jpg" style="width: 300px;height: 199px">
+            <figcaption>It Starts With Us</figcaption>
+        </figure>
+        <figure>
+            <img src="\css326\assets\124.jpg" style="width: 300px;height: 199px">
+            <figcaption>Faith Still Moves Mountains</figcaption>
+        </figure>
+        <figure>
+            <img src="\css326\assets\125.jpg" style="width: 300px;height: 199px">
+            <figcaption>The Light We Carry</figcaption>
+        </figure>
+        <figure>
+            <img src="\css326\assets\126.jpg" style="width: 300px;height: 199px">
+            <figcaption>Diary of a Wimpy Kid: Diaper Overlode</figcaption>
+        </figure>
+        <figure>
+            <img src="\css326\assets\127.jpg" style="width: 150px;height: 199px">
+            <figcaption>Think Again</figcaption>
+        </figure>
+            <br>
+            <br>
+            <br>
+            <br>
     </div>
   </body>
   <footer><div style="padding: 10px">Contact Information</div></footer>
