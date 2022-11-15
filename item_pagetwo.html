@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index Page</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    header {
+      font-family: Arial, Helvetica, sans-serif;
+      width: 100%;
+      background-color: #1c3948;
+
+      color: #e4960e;
+      font-size: 65px;
+      text-shadow: 2px 2px 5px #000000;
+    }
+
+    .header_button {
+      width: 25%;
+      height: 50px;
+      background-color: #eba92a;
+      transition-duration: 0.4s;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 25px;
+      font: bold;
+    }
+
+    .header_button:hover {
+      background-color: white;
+      color: black;
+      border: 2px solid #000000;
+    }
+
+    footer {
+      font-family: Arial, Helvetica, sans-serif;
+      width: 100%;
+      background-color: #1c3948;
+      color: #e4960e;
+      font-size: 30px;
+      bottom: 0px;
+    }
+    .subhead {
+      width: auto;
+      padding: 20px 10px 0 20px;
+
+      transition-duration: 0.4s;
+      font: 30px Arial, sans-serif;
+    }
+    #announcement {
+      font-weight: bold;
+    }
+
+    ul {
+      list-style-type: none;
+      width: 25%;
+      margin: 0;
+      padding: 1%;
+      overflow: hidden;
+      background-color: #eba92a;
+    }
+    label {
+      background: #e4960e;
+      margin: 0 3% 0 4%;
+      padding: 140px 50px 0;
+      text-decoration: underline;
+    }
+
+    .grid-container-announce {
+      display: grid;
+      grid-template-columns: 337px 337px 337px 337px;
+      padding: 10px;
+    }
+
+    .grid-container-book {
+      display: grid;
+      grid-template-columns: 337px 337px 337px 337px;
+      padding: 10px;
+    }
+
+    .grid-item-announce {
+      background-color: rgba(255, 184, 53, 0.8);
+      border: 1px solid rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 337px 337px 337px 337px;
+      padding: 10px;
+    }
+    .grid-item {
+      background-color: rgba(255, 255, 255, 0.8);
+      /* border: 1px solid rgba(0, 0, 0, 0.8); */
+      padding: 20px;
+      font-size: 30px;
+      text-align: center;
+    }
+  </style>
+  <header>
+    <div style="padding: 20px">Librariann</div>
+  </header>
+  <body>
+    <div>
+      <button class="header_button"><strong>Item</strong></button
+      ><button class="header_button"><strong>Borrow</strong></button
+      ><button class="header_button"><strong>Books</strong></button
+      ><button class="header_button"><strong>Login</strong></button>
+    </div>
+    <div class="subhead">
+      <div class="subhead" id="announcement">Announcement</div>
+      <div class="grid-container-announce">
+        <div class="grid-item-announce">
+          <img
+            alt="chisato"
+            src="./assets/4f2576a9281b601a152146aec41dfe961652868603_main.jpg"
+            width="200px"
+          />
+          <p style="font-size: 20px">News Blablabla</p>
+        </div>
+        <div class="grid-item-announce">
+          <img
+            alt="chisato"
+            src="./assets/4f2576a9281b601a152146aec41dfe961652868603_main.jpg"
+            width="200px"
+          />
+          <p style="font-size: 20px">News Blablabla</p>
+        </div>
+        <div class="grid-item-announce">
+          <img
+            alt="chisato"
+            src="./assets/4f2576a9281b601a152146aec41dfe961652868603_main.jpg"
+            width="200px"
+          />
+          <p style="font-size: 20px">News Blablabla</p>
+        </div>
+        <div class="grid-item-announce">
+          <img
+            alt="chisato"
+            src="./assets/4f2576a9281b601a152146aec41dfe961652868603_main.jpg"
+            width="200px"
+          />
+          <p style="font-size: 20px">News Blablabla</p>
+        </div>
+      </div>
+      <div class="subhead" id="announcement">Books</div>
+      <div class="grid-container">
+        <div class="grid-item">
+          <div>
+            <img src="assets/book_detail_large.gif" alt="book" width="150px" />
+          </div>
+          <div>Citrus Vol.1</div>
+        </div>
+        <div class="grid-item">
+          <div>
+            <img
+              src="assets/book_detail_large (1).gif"
+              alt="book"
+              width="150px"
+            />
+          </div>
+          <div>Citrus Vol.2</div>
+        </div>
+        <div class="grid-item">
+          <div>
+            <img
+              src="assets/book_detail_large (2).gif"
+              alt="book"
+              width="150px"
+            />
+          </div>
+          <div>Citrus Vol.3</div>
+        </div>
+        <div class="grid-item">
+          <div>
+            <img src="assets/9781626922174.jfif" alt="book" width="150px" />
+          </div>
+          <div>Citrus Vol.4</div>
+        </div>
+        <div class="grid-item">
+          <div>
+            <img
+              src="assets/Harry_Potter_and_the_Philosopher's_Stone_Book_Cover.jpg"
+              alt="book"
+              width="150px"
+            />
+          </div>
+          <div>Harry potter and the Philosopher's Stone</div>
+        </div>
+        <div class="grid-item">
+          <div>
+            <img
+              src="assets/book_detail_large (3).gif"
+              alt="book"
+              width="150px"
+            />
+          </div>
+          <div>นิทานพันดาว</div>
+        </div>
+        <div class="grid-item">
+          <div>
+            <img src="assets/400716.jpg" alt="book" width="150px" />
+          </div>
+          <div>Introduction to the Theory of Computation</div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer><div style="padding: 10px">Contact Information</div></footer>
+</html>
