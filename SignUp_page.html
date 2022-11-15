@@ -10,7 +10,6 @@
     body {
       margin: 0;
     }
-
     header {
       font-family: Arial, Helvetica, sans-serif;
       width: 100%;
@@ -48,6 +47,68 @@
       position: absolute;
       bottom: 0px;
     }
+    .center {
+      text-align: center;
+    }
+
+    .label {
+      width: auto;
+      height: 30px;
+      left: 80px;
+      top: 30px;
+
+      position: relative;
+      transition-duration: 0.4s;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 22px;
+      font: bold;
+    }
+    .user_information {
+      width: 25%;
+      height: 20px;
+      position: absolute;
+      background-color: #bebdbd;
+      left: 300px;
+      padding: 10px;
+      margin: 10px 8px;
+    }
+    .user_information:hover {
+      background-color: #d2d0d0;
+      border: 2px solid;
+    }
+    .user_information:focus {
+      background-color: #c2c2c2;
+      border: 2px solid;
+    }
+    .split {
+      height: 0px;
+      width: 50%;
+      position: relative;
+      z-index: 1;
+      top: 10px;
+      padding-top: 20px;
+    }
+
+    /* Control the left side */
+    .left {
+      left: 0;
+    }
+
+    /* Control the right side */
+    .right {
+      right: 0;
+      left: 710px;
+    }
+
+    .submit-button {
+      top: 360px;
+      left: 350px;
+      height: 40px;
+      width: 200px;
+      position: absolute;
+      text-align: center;
+    }
   </style>
   <header>
     <div style="padding: 20px">Librariann</div>
@@ -57,15 +118,71 @@
       <button class="header_button"><strong>Item</strong></button
       ><button class="header_button"><strong>Borrow</strong></button
       ><button class="header_button"><strong>Books</strong></button
-      ><button class="header_button"><strong>Sign In</strong></button>
+      ><button class="header_button"><strong>Login</strong></button>
     </div>
+    <!-- <div id="wrapper"> -->
+    <div id="actual_content">
+      <div id="box">
+        <div id="leftbox" , class="split left">
+          <label class="label"><strong>Name</strong></label>
+          <input class="user_information" type="text" style="top: 32px" /><br />
 
-    <div>
-      <label for="Name">Name:</label>
-      <input type="text" id="Name" name="Name" />
+          <label class="label" style="top: 110px"
+            ><strong>Lastname</strong></label
+          >
+          <input
+            class="user_information"
+            type="text"
+            style="top: 142px"
+          /><br />
 
-      <label for="Userame">Username:</label>
-      <input type="text" id="Username" name="Username" />
+          <label class="label" style="top: 190px"
+            ><strong>Occupation</strong></label
+          >
+          <input
+            class="user_information"
+            type="text"
+            style="top: 252px"
+          /><br />
+
+          <label class="label" style="top: 270px"
+            ><strong>Telephone No.</strong></label
+          >
+          <input
+            class="user_information"
+            type="text"
+            style="top: 362px"
+          /><br />
+        </div>
+
+        <div id="rightbox" , class="split right">
+          <label class="label"><strong>Username</strong></label
+          ><br />
+          <input class="user_information" type="text" style="top: 32px" /><br />
+
+          <label class="label" style="top: 100px"
+            ><strong>Password</strong></label
+          ><br />
+          <input
+            class="user_information"
+            type="text"
+            style="top: 142px"
+          /><br />
+
+          <label class="label" style="top: 170px"
+            ><strong>Confirm Password</strong></label
+          ><br />
+          <input
+            class="user_information"
+            type="text"
+            style="top: 252px"
+          /><br />
+
+          <div class="submit-button">
+            <input type="submit" name="submit" value="Submit" />
+          </div>
+        </div>
+      </div>
     </div>
   </body>
   <footer><div style="padding: 10px">Contact Information</div></footer>
