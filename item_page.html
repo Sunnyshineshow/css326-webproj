@@ -42,7 +42,6 @@
       font-family: Arial, Helvetica, sans-serif;
       width: 100%;
       background-color: #1c3948;
-
       color: #e4960e;
       font-size: 30px;
       position: absolute;
@@ -52,7 +51,7 @@
       width: auto;
       padding: 20px 10px 0 20px;
 
-      margin-bottom: 150px;
+      margin-bottom: 10px;
 
       transition-duration: 0.4s;
       font: 30px Arial, sans-serif;
@@ -70,12 +69,24 @@
       background-color: #eba92a;
     }
     label{
-      background: #e4960e;
-      margin: 0 3% 0 4%;
-      padding: 140px 50px 0;
-      text-decoration: underline;
+        background: #e4960e;
+        text-decoration: underline;
+        text-align: justify;
+        width: 199px;
+        margin: 0 7% 0;
     }
-
+    .announcementlink{
+        text-align: center;
+        margin: auto;
+    }
+    img{
+        margin: 0 2% 0;
+        padding: 10px;
+        align-content: center;
+    }
+    html{
+        scroll-behavior: smooth;
+    }
 
   </style>
   <header>
@@ -88,14 +99,21 @@
       ><button class="header_button"><strong>Books</strong></button
       ><button class="header_button"><strong>Login</strong></button>
     </div>
-    <div class="subhead" >
+    <div>
       <div class="subhead" id="announcement">Announcement</div>
-       <img src="\xampp\htdocs\css326\assets\library-design.jpg" style="width: 199px;height: 257px">
-          <label>Title 1</label>
-        <label>Title 2</label>
-        <label>Title 3</label>
-        <label>Title 4</label>
-        <label>Title 5</label>
+        <div class="announcementlink">
+            <img src="\css326\assets\400.png" style="width: 200px;height: 118px">
+            <img src="\css326\assets\library-design.jpg" style="width: 199px;height: 257px">
+            <img src="\css326\assets\library-design.jpg" style="width: 199px;height: 257px">
+            <img src="\css326\assets\library-design.jpg" style="width: 199px;height: 257px">
+            <img src="\css326\assets\library-design.jpg" style="width: 199px;height: 257px">
+            <br>
+            <a href="">Title 1</a>
+            <label>Title 2</label>
+            <label>Title 3</label>
+            <label>Title 4</label>
+            <label>Title 5</label>
+        </div>
     </div>
   </body>
   <footer><div style="padding: 10px">Contact Information</div></footer>
