@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template Page</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    header {
+      font-family: Arial, Helvetica, sans-serif;
+      width: 100%;
+      background-color: #1c3948;
+
+      color: #e4960e;
+      font-size: 65px;
+      text-shadow: 2px 2px 5px #000000;
+    }
+
+    .header_button {
+      width: 25%;
+      height: 50px;
+      background-color: #eba92a;
+      transition-duration: 0.4s;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 25px;
+      font: bold;
+    }
+
+    .header_button:hover {
+      background-color: white;
+      color: black;
+      border: 2px solid #000000;
+    }
+
+    footer {
+      font-family: Arial, Helvetica, sans-serif;
+      width: 100%;
+      background-color: #1c3948;
+
+      color: #e4960e;
+      font-size: 30px;
+      bottom: 0px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 200px 400px 400px;
+      padding: 10px;
+    }
+    .grid-item {
+      background-color: rgba(255, 255, 255, 0.8);
+      /* border: 1px solid rgba(0, 0, 0, 0.8); */
+      font-size: 30px;
+    }
+  </style>
+  <header>
+    <div style="padding: 20px">Librariann</div>
+  </header>
+  <body>
+    <div>
+      <button class="header_button"><strong>Item</strong></button
+      ><button class="header_button"><strong>Borrow</strong></button
+      ><button class="header_button"><strong>Books</strong></button
+      ><button class="header_button"><strong>Login</strong></button>
+    </div>
+    <div id="actual_content">
+      <div
+        style="
+          padding: 20px;
+          font-size: 30px;
+          font-family: Arial, Helvetica, sans-serif;
+        "
+      >
+        <form id="search_area" style="margin-left: 20px; margin-top: 20px">
+          <input
+            type="text"
+            placeholder="Type to search..."
+            style="
+              width: 30%;
+              height: 30px;
+              font-size: 20px;
+              margin-right: 10px;
+            "
+          />
+          <input type="submit" style="padding: 9px" />
+        </form>
+      </div>
+      <!-- Books -->
+      <div style="padding: 35px">
+        <div class="grid-container" style="margin-left: 50px">
+          <div class="grid-item">
+            <img
+              src="assets/book_detail_large (2).gif"
+              alt="book"
+              width="200px"
+            />
+          </div>
+          <div class="grid-item" style="margin-left: 30px">
+            Book name: Citrus <br /><br />
+            Author: Zenshu?? <br /><br />
+            Genre: Shoujo, Yuri <br /><br />
+            Location: Y-001 <br /><br />
+          </div>
+          <div class="grid-item" style="margin-left: 30px">
+            Book ID: CT001 <br /><br />
+            Date Added: 19/10/2022 <br /><br />
+            Status: Available <br /><br />
+          </div>
+        </div>
+      </div>
+      <!-- Books -->
+      <div style="padding: 35px">
+        <div class="grid-container" style="margin-left: 50px">
+          <div class="grid-item">
+            <img src="assets/book_detail_large.gif" alt="book" width="200px" />
+          </div>
+          <div class="grid-item" style="margin-left: 30px">
+            Book name: Citrus <br /><br />
+            Author: Zenshu?? <br /><br />
+            Genre: Shoujo, Yuri <br /><br />
+            Location: Y-001 <br /><br />
+          </div>
+          <div class="grid-item" style="margin-left: 30px">
+            Book ID: CT001 <br /><br />
+            Date Added: 19/10/2022 <br /><br />
+            Status: Available <br /><br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer><div style="padding: 10px">Contact Information</div></footer>
+</html>
