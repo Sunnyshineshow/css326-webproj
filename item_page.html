@@ -72,27 +72,21 @@
     a{
         text-decoration: none;
         text-align: justify;
-        margin-right: 130px;
     }
-    .announcementlink{
-        text-align: center;
-        margin: auto;
-    }
+
     img{
-        padding: 10px;
+        padding: 0 20px 0;
         align-content: center;
+    }
+    #extra1, #extra2,#extra3,#extra4,#extra5{
+        padding: 0 100px 0;
     }
     html{
         scroll-behavior: smooth;
         overflow: scroll;
         overflow-x: hidden;
     }
-    label{
-        text-decoration: none;
-        text-align: justify;
-        width: 199px;
-        margin-right: 130px;
-    }
+
     figure{
         display: inline-block;
     }
@@ -111,26 +105,27 @@
       ><button class="header_button"><strong>Books</strong></button
       ><button class="header_button"><strong>Login</strong></button>
     </div>
-        <div class="subhead" id="announcement">Announcement</div>
-    <marquee>
+    <div class="subhead" id="announcement">Announcement</div>
+
+    <marquee behavior="scroll" direction="left" scrollamount="10">
         <figure>
-            <img src="\css326\assets\400.png" style="width: 250px;height: 168px">
+            <img src="\css326\assets\400.png" style="width: 250px;height: 168px" id="extra1">
             <a href="https://library.siit.tu.ac.th/blog/2022/01/siit-library-prevention-of-covid19"><figcaption>SIIT Library: Prevention of COVID-19</figcaption></a>
         </figure>
         <figure>
-            <img src="\css326\assets\760.png" style="width: 250px;height: 172px">
+            <img src="\css326\assets\760.png" style="width: 250px;height: 172px" id="extra2">
             <a href="https://library.siit.tu.ac.th/th/blog/2022/09/openathens"><figcaption>OpenAthens</figcaption></a>
         </figure>
         <figure>
-            <img src="\css326\assets\112.png" style="width: 250px;height: 193px">\
+            <img src="\css326\assets\112.png" style="width: 250px;height: 193px" id="extra3" >
             <a href="https://library.siit.tu.ac.th/th/blog/2022/11/data-science-from-scratch--first-principles-with-python"><figcaption>Top Book Borrowed!</figcaption></a>
         </figure>
         <figure>
-            <img src="\css326\assets\132.png" style="width: 250px;height: 133px">
+            <img src="\css326\assets\132.png" style="width: 250px;height: 133px" id="extra4">
             <a href="https://library.siit.tu.ac.th/blog/2022/07/newscenter"><figcaption>NEWSCenter</figcaption></a>
         </figure>
         <figure>
-            <img src="\css326\assets\100.png" style="width: 250px;height: 136px">
+            <img src="\css326\assets\100.png" style="width: 250px;height: 136px" id="extra5">
             <a href="https://library.siit.tu.ac.th/blog/2021/10/ethesis-format-checking-services"><figcaption>E-thesis format checking services</figcaption></a>
         </figure>
     </marquee>
