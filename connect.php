@@ -1,5 +1,5 @@
 <?php 
-$mysqli = new mysqli('localhost','root','','lab12');
+$mysqli = new mysqli('localhost','root','','librarian');
 
 if ($mysqli->connect_errno)
 {

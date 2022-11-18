@@ -1,3 +1,5 @@
+<?php require_once('connect.php')?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -121,11 +123,11 @@
       ><button class="header_button"><strong>Login</strong></button>
     </div>
     <!-- <div id="wrapper"> -->
-    <div id="actual_content">
+    <form id="actual_content" action="" method="post">
       <div id="box">
         <div id="leftbox" , class="split left">
           <label class="label"><strong>Name</strong></label>
-          <input class="user_information" type="text" style="top: 32px" /><br />
+          <input class="user_information" type="text" name="fname" style="top: 32px" /><br />
 
           <label class="label" style="top: 110px"
             ><strong>Lastname</strong></label
@@ -134,6 +136,7 @@
             class="user_information"
             type="text"
             style="top: 142px"
+            name="lname"
           /><br />
 
           <label class="label" style="top: 190px"
@@ -152,21 +155,23 @@
             class="user_information"
             type="text"
             style="top: 362px"
+            name="tel_no"
           /><br />
         </div>
 
         <div id="rightbox" , class="split right">
           <label class="label"><strong>Username</strong></label
           ><br />
-          <input class="user_information" type="text" style="top: 32px" /><br />
+          <input class="user_information" type="text" style="top: 32px" name="username" /><br />
 
           <label class="label" style="top: 100px"
             ><strong>Password</strong></label
           ><br />
           <input
             class="user_information"
-            type="text"
+            type="password"
             style="top: 142px"
+            name="password"
           /><br />
 
           <label class="label" style="top: 170px"
@@ -174,8 +179,9 @@
           ><br />
           <input
             class="user_information"
-            type="text"
+            type="password"
             style="top: 252px"
+            name="cfpassword"
           /><br />
 
           <div class="submit-button">
@@ -183,7 +189,29 @@
           </div>
         </div>
       </div>
-    </div>
+  </form>
   </body>
   <footer><div style="padding: 10px">Contact Information</div></footer>
+
+  <?php 
+  if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['cfpassword']) &&isset($_POST['fname']) &&isset($_POST['lname']) &&isset($_POST['tel_no']))
+  {
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $tel_no = $_POST['tel_no'];
+
+    $q = "INSERT INTO user (username,password,fname,lname,tel_no) VALUES ('$username', PASSWORD('$password'), '$fname','$lname','$tel_no')";
+
+    if(!$mysqli->query($q))
+    {
+      echo $mysqli->error;
+    }
+    //Navigate Here
+
+    //header("Location: ./SignIn_page.php");
+  }
+  ?>
 </html>
