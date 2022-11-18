@@ -42,13 +42,29 @@
       width: 40%;
       height: 50px;
       background-color: white;
-      display: flex;
+      display: block;
       margin: auto;
       width: 50%;
       padding: 10px;
     }
 
     .Usernamenpass_textbox:hover {
+      background-color: white;
+      color: #827676;
+      border: 2px solid #827676;
+    }
+
+
+    .sign_in_button {
+      height: 50px;
+      background-color: white;
+      display: block;
+      margin: auto;
+      width: 20%;
+      padding: 10px;
+    }
+
+    .sign_in_button:hover {
       background-color: white;
       color: #827676;
       border: 2px solid #827676;
@@ -61,11 +77,9 @@
       font-family: Arial, Helvetica, sans-serif;
       font-size: 25px;
       font: bold;
-      display: flex;
+      display: block;
       margin: 0 auto;
-      width: 20%;
       padding: 10px;
-      style="text-align: center"
     }
 
     .submit_button:hover {
@@ -93,8 +107,8 @@
   <body>
     <div>
       <button class="header_button"><strong>Item</strong></button
-      ><button class="header_button"><strong>Borrow</strong></button
-      ><button class="header_button"><strong>Books</strong></button
+      ><a href="./borrow_page.html"><button class="header_button"><strong>Borrow</strong></button
+      ></a><button class="header_button"><strong>Books</strong></button
       ><button class="header_button"><strong>Login</strong></button>
     </div>
 
@@ -105,16 +119,18 @@
         type="text"
         placeholder="Username" name="username"
       /><br /><br />
-      <input class="Usernamenpass_textbox" type="text" placeholder="Password" name="password"/>
+      <input class="Usernamenpass_textbox" type="password" placeholder="Password" name="password"/>
     </div>
     <div style="text-align: center">
       <br />
-      <input type="submit" class="submit_button" value="log in" > 
-      <a href=" ">Forget the password</a>
+      <input type="submit" class="submit_button" value="log in" style="text-align: center;"> 
+      
+      <div style="margin: 10px"><a href=" ">Forget the password</a></div>
+      
     </div>
 
     <div>
-      <a href="  "> <button class="Usernamenpass_textbox"><strong>Sign up</strong></button></a>
+      <a href="  "> <button class="sign_in_button"><strong>Sign up</strong></button></a>
     </div>
   
   </FORM>
