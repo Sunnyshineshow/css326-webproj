@@ -62,9 +62,10 @@
       font-size: 25px;
       font: bold;
       display: flex;
-      margin: auto;
+      margin: 0 auto;
       width: 20%;
       padding: 10px;
+      style="text-align: center"
     }
 
     .submit_button:hover {
@@ -84,9 +85,11 @@
       bottom: 0px;
     }
   </style>
+
   <header>
     <div style="padding: 20px">Librariann</div>
   </header>
+  
   <body>
     <div>
       <button class="header_button"><strong>Item</strong></button
@@ -94,23 +97,28 @@
       ><button class="header_button"><strong>Books</strong></button
       ><button class="header_button"><strong>Login</strong></button>
     </div>
+
+    <FORM action="user_page.html" method="POST">
     <div>
       <br /><input
         class="Usernamenpass_textbox"
         type="text"
-        placeholder="Username"
+        placeholder="Username" name="username"
       /><br /><br />
-      <input class="Usernamenpass_textbox" type="text" placeholder="Password" />
+      <input class="Usernamenpass_textbox" type="text" placeholder="Password" name="password"/>
     </div>
     <div style="text-align: center">
       <br />
-      <button class="submit_button">log in</button>
-      <a href="">Forget the password</a>
+      <input type="submit" class="submit_button" value="log in" > 
+      <a href=" ">Forget the password</a>
     </div>
 
     <div>
-      <button class="Usernamenpass_textbox"><strong>Sign up</strong></button>
+      <a href="  "> <button class="Usernamenpass_textbox"><strong>Sign up</strong></button></a>
     </div>
+  
+  </FORM>
   </body>
+  
   <footer><div style="padding: 10px">Contact Information</div></footer>
 </html>
