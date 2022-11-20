@@ -118,37 +118,40 @@
     <div style="padding: 20px">Librariann</div>
 </header>
 <body>
+
 <div>
 <a href="./item_page.html"><button class="header_button"><strong>Item</strong></button
       ></a><a href="./borrow_page.php"><button class="header_button"><strong>Borrow</strong></button
       ></a><a href="book_page.php"><button class="header_button"><strong>Books</strong></button
       ></a><a href="SignIn_page.php"><button class="header_button"><strong>Login</strong></button></a>
 </div>
+<form action ="./Confirmborrow_page.php" method="POST">
+
 <!-- <div id="wrapper"> -->
     <div id="actual_content">
         <div id="box">
             <div id="leftbox", class="split left">
                 <label class="label" ><strong>Book's name</strong></label>
-                <input class="bookname_textbox" type="text" style="top: 32px"><br>
+                <input class="bookname_textbox" type="text" style="top: 32px name="Book_name" "><br>
 
 
                 <label class="label" style="top:110px;"><strong>Name-Lastname</strong></label>
-                <input class="bookname_textbox" type="text" style="top: 142px"><br>
+                <input class="bookname_textbox" type="text" style="top: 142px" name="User_namenlastname"><br>
 
 
-                <label class="label" style="top:190px;"><strong>ID number</strong></label>
-                <input class="bookname_textbox" type="text" style="top: 252px"><br>
+                <label class="label" style="top:190px;"><strong>Book's ID number</strong></label>
+                <input class="bookname_textbox" type="text" style="top: 252px" name="Book_ID"><br>
 
                 <label class="label" style="top:270px;"><strong>Telephone No.</strong></label>
-                <input class="bookname_textbox" type="text" style="top: 362px"><br>
+                <input class="bookname_textbox" type="text" style="top: 362px" name="User_telno"><br>
             </div>
 
             <div id="rightbox", class="split right">
                 <label class="label" ><strong>Address</strong></label><br>
-                <input class="bookname_textbox" type="text" style="left:70px;top: 80px;width:50%;height: 80px;"><br>
+                <input class="bookname_textbox" type="text" style="left:70px;top: 80px;width:50%;height: 80px;" name="User_address"><br>
 
                 <label class="label" style="top:170px"><strong>Time to pick up the book</strong></label><br>
-                <input class="bookname_textbox" type="time" style="left: 70px;top: 260px;width:50%;"><br>
+                <input class="bookname_textbox" type="time" style="left: 70px;top: 260px;width:50%;" name="User_time"><br>
 
                 <div class="form-submit-button">
                 <input type="submit" name="submit" value="Reserve">
@@ -158,6 +161,7 @@
         </div>
     </div>
 <!-- </div> -->
+</form>
 </body>
 <footer><div style="padding: 10px">Contact Information</div></footer>
 </html>

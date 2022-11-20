@@ -114,6 +114,7 @@
     <div style="padding: 20px">Librariann</div>
   </header>
   <body>
+
     <div>
       <a href="./item_page.html"
         ><button class="header_button"><strong>Item</strong></button></a
@@ -125,6 +126,22 @@
         ><button class="header_button"><strong>Login</strong></button></a
       >
     </div>
+
+    <?php
+    $Book_name = $_POST["Book_name"];
+    $User_nameandlastname = $_POST["User_namenlastname"];
+    $Book_ID = $_POST["Book_ID"];
+    $User_telno = $_POST["User_telno"];
+    $User_address = $_POST["User_address"];
+    $User_time = $_POST["User_time"];
+
+    echo $Book_name. " ". $User_nameandlastname. " ". $Book_ID. " ". $User_telno. " ". $User_address. " ". $User_time. " ".;
+    
+    ?>
+
+
+
+
     <!-- <div id="wrapper"> -->
     <div id="actual_content">
       <div id="box">
