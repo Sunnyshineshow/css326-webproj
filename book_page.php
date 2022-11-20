@@ -1,10 +1,16 @@
+<?php 
+require_once('connect.php');
+session_start(); 
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index Page</title>
+    <title>Template Page</title>
   </head>
   <style>
     body {
@@ -42,60 +48,22 @@
       font-family: Arial, Helvetica, sans-serif;
       width: 100%;
       background-color: #1c3948;
+
       color: #e4960e;
       font-size: 30px;
-      position: fixed;
       bottom: 0px;
     }
-    .subhead {
-      width: auto;
-      padding: 20px 10px 0 20px;
 
-      margin-bottom: 10px;
-
-      transition-duration: 0.4s;
-      font: 30px Arial, sans-serif;
+    .grid-container {
+      display: grid;
+      grid-template-columns: 337px 337px 337px 337px;
+      padding: 10px;
     }
-    #announcement,
-    #newbook {
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    ul {
-      list-style-type: none;
-      width: 25%;
-      margin: 0;
-      padding: 1%;
-      overflow: hidden;
-      background-color: #eba92a;
-    }
-    a {
-      text-decoration: none;
-      text-align: justify;
-    }
-
-    img {
-      padding: 0 20px 0;
-      align-content: center;
-    }
-    #extra1,
-    #extra2,
-    #extra3,
-    #extra4,
-    #extra5 {
-      padding: 0 100px 0;
-    }
-    html {
-      scroll-behavior: smooth;
-      overflow: scroll;
-      overflow-x: hidden;
-    }
-
-    figure {
-      display: inline-block;
-    }
-    figcaption {
+    .grid-item {
+      background-color: rgba(255, 255, 255, 0.8);
+      /* border: 1px solid rgba(0, 0, 0, 0.8); */
+      padding: 20px;
+      font-size: 30px;
       text-align: center;
     }
   </style>
@@ -110,40 +78,95 @@
         ><button class="header_button"><strong>Borrow</strong></button></a
       ><a href="book_page.php"
         ><button class="header_button"><strong>Books</strong></button></a
-      ><a href="SignIn_page.php"
-        ><button class="header_button"><strong>Login</strong></button></a
+      ><a href="./SignIn_page.php"
+        ><button class="header_button"><strong>Log In</strong></button></a
       >
     </div>
+    <div id="actual_content">
+      <div
+        style=" padding: 20px; font-size: 30px; font-family: Arial, Helvetica, sans-serif;">
 
-    
-    <br />
-
-    <div>
-      <div class="subhead" id="newbook">New Book Arrived !!!</div>
-      <figure>
-        <img src="\css326\assets\123.jpg" style="width: 300px; height: 199px" />
-        <figcaption>It Starts With Us</figcaption>
-      </figure>
-      <figure>
-        <img src="\css326\assets\124.jpg" style="width: 300px; height: 199px" />
-        <figcaption>Faith Still Moves Mountains</figcaption>
-      </figure>
-      <figure>
-        <img src="\css326\assets\125.jpg" style="width: 300px; height: 199px" />
-        <figcaption>The Light We Carry</figcaption>
-      </figure>
-      <figure>
-        <img src="\css326\assets\126.jpg" style="width: 300px; height: 199px" />
-        <figcaption>Diary of a Wimpy Kid: Diaper Overlode</figcaption>
-      </figure>
-      <figure>
-        <img src="\css326\assets\127.jpg" style="width: 150px; height: 199px" />
-        <figcaption>Think Again</figcaption>
-      </figure>
-      <br />
-      <br />
-      <br />
-      <br />
+        <form id="search_area" style="margin-left: 20px; margin-top: 20px">
+        <h5>Search for book</h5>
+          <input
+            type="text"
+            placeholder="Type to search..."
+            style="
+              width: 30%;
+              height: 30px;
+              font-size: 20px;
+              margin-right: 10px;
+            "
+          />
+          <input type="submit" style="padding: 9px" />
+        </form>
+      </div>
+      <div style="padding: 20px">
+        <div class="grid-container">
+          <div class="grid-item">
+            <div>
+              <img
+                src="assets/book_detail_large.gif"
+                alt="book"
+                width="150px"
+              />
+            </div>
+            <div>Citrus Vol.1</div>
+          </div>
+          <div class="grid-item">
+            <div>
+              <img
+                src="assets/book_detail_large (1).gif"
+                alt="book"
+                width="150px"
+              />
+            </div>
+            <div>Citrus Vol.2</div>
+          </div>
+          <div class="grid-item">
+            <div>
+              <img
+                src="assets/book_detail_large (2).gif"
+                alt="book"
+                width="150px"
+              />
+            </div>
+            <div>Citrus Vol.3</div>
+          </div>
+          <div class="grid-item">
+            <div>
+              <img src="assets/9781626922174.jfif" alt="book" width="150px" />
+            </div>
+            <div>Citrus Vol.4</div>
+          </div>
+          <div class="grid-item">
+            <div>
+              <img
+                src="assets/Harry_Potter_and_the_Philosopher's_Stone_Book_Cover.jpg"
+                alt="book"
+                width="150px"
+              />
+            </div>
+            <div>Harry potter and the Philosopher's Stone</div>
+          </div>
+          <div class="grid-item">
+            <div>
+              <img
+                src="assets/book_detail_large (3).gif"
+                alt="book"
+                width="150px"
+              />
+            </div>
+            <div>นิทานพันดาว</div>
+          </div>
+          <div class="grid-item">
+            <div>
+              <img src="assets/400716.jpg" alt="book" width="150px" />
+            </div>
+            <div>Introduction to the Theory of Computation</div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
   <footer><div style="padding: 10px">Contact Information</div></footer>
