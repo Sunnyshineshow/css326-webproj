@@ -86,7 +86,7 @@ session_start();
       <div
         style=" padding: 20px; font-size: 30px; font-family: Arial, Helvetica, sans-serif;">
 
-        <form id="search_area" style="margin-left: 20px; margin-top: 20px">
+        <form id="search_area" style="margin-left: 20px; margin-top: 20px" action="" method="get">
         <h5>Search for book</h5>
           <input
             type="text"
@@ -96,24 +96,48 @@ session_start();
               height: 30px;
               font-size: 20px;
               margin-right: 10px;
-            "
+            " name="search"
+            value='<?php if (isset($_GET['search']) && $_GET['search']) {echo $_GET['search'];}?>'
           />
           <input type="submit" style="padding: 9px" />
         </form>
       </div>
       <div style="padding: 20px">
         <div class="grid-container">
-          <div class="grid-item">
+          <!-- Book -->
+          <?php 
+          
+
+          if(isset($_GET['search']) && $_GET['search'])
+          {
+            $search = $_GET['search'];
+            $query2 = "SELECT * from book WHERE book_name LIKE '%$search%'";
+            $result = $mysqli->query($query2);
+          }
+          else
+          {
+            $query = "SELECT * from book";
+            $result = $mysqli->query($query);
+          }
+
+          while($row=$result->fetch_array())
+          {
+            echo "<div class=\"grid-item\">
             <div>
               <img
-                src="assets/book_detail_large.gif"
-                alt="book"
-                width="150px"
+                src=\"".$row['book_img']."\"
+                alt=\"book\"
+                width=\"150px\"
               />
             </div>
-            <div>Citrus Vol.1</div>
-          </div>
-          <div class="grid-item">
+            <div>".$row['book_name']."</div>
+          <div>ID: ".$row['book_id']."</div>
+          </div>";
+          }
+          
+          ?>
+          
+          <!-- <div class="grid-item">
             <div>
               <img
                 src="assets/book_detail_large (1).gif"
@@ -164,7 +188,7 @@ session_start();
               <img src="assets/400716.jpg" alt="book" width="150px" />
             </div>
             <div>Introduction to the Theory of Computation</div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

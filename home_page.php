@@ -26,6 +26,15 @@ session_start();
       text-shadow: 2px 2px 5px #000000;
     }
 
+    .header {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #1c3948;
+      text-decoration: none;
+      color: #e4960e;
+      font-size: 65px;
+      text-shadow: 2px 2px 5px #000000;
+    }
+
     .header_button {
       width: 25%;
       height: 50px;
@@ -65,7 +74,7 @@ session_start();
     }
   </style>
   <header>
-    <div style="padding: 20px">Librariann</div>
+    <div style="padding: 20px"><a href="./home_page.php" class="header">Librariann</a></div>
   </header>
   <body>
     <div>
