@@ -1,3 +1,9 @@
+<?php 
+require_once('connect.php');
+session_start(); 
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -82,8 +88,57 @@
           font-family: Arial, Helvetica, sans-serif;
         "
       >
-        <strong>Hi!! Ichigo Yogurt...</strong>
+      <?php
+      $username = $_SESSION['username'];
+      $fname = '';
+      $lname = '';
+
+      $query = "SELECT fname,lname,tel_no,user_id FROM user WHERE username='$username'";
+
+      if($result = $mysqli->query($query))
+      {
+        $row = $result->fetch_array();
+
+        $fname = $row['fname'];
+        $lname = $row['lname'];
+        $tel_no = $row['tel_no'];
+        $user_id = $row['user_id'];
+
+        echo "<strong>Hi!! $fname $lname...</strong>";
+      }
+      else
+      {
+        echo "<strong>We have a problem loading your name</strong>";
+      }
+      ?>
+      <br>
+      <br>
+        <div>
+          <span style="font-size: 25px">Basic Information</span>
+          <p style="font-size: 15px">Tel No. <?=$tel_no?><br><br>
+        <?php
+        $query = "SELECT * FROM member WHERE user_id='$user_id'";
+
+        if($result = $mysqli->query($query))
+        {
+          if ($result->num_rows == 1)
+          {
+            $row = $result->fetch_array();
+
+            echo "Membership: Yes<br><br>Expiration Date: ".$row['expire_date'];
+          }
+          else
+          {
+            echo "Membership: NO";
+          }
+        }
+        ?>
+
+        </p>
+
+        </div>
         <form id="search_area" style="margin-left: 20px; margin-top: 20px">
+        <h5>Borrowed books</h5>
           <input
             type="text"
             placeholder="Type to search..."
