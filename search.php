@@ -45,7 +45,6 @@
 
         color: #e4960e;
         font-size: 30px;
-        position: absolute;
         bottom: 0px;
     }
 
@@ -90,7 +89,7 @@
 require_once ('connect.php');
 $bookname=$_POST['bookname'];
 if(isset($bookname) & !empty($bookname)){
-    $q = "select book_id, book_name, author from book where book_name like '%".$bookname."%';";
+    $q = "select book_id, book_name, author, book_img from book where book_name like '%".$bookname."%';";
     if ($results=$mysqli->query($q)){
         $count = $results->num_rows;
         echo "<br>";
@@ -99,10 +98,15 @@ if(isset($bookname) & !empty($bookname)){
     if ($mysqli->query($q)){
         if ($results=$mysqli->query($q)) {
             echo "<table class='center'>";
-            echo "<th>Book ID</th><th>Book Name</th><th>Author</th>";
+            echo "<th>Book ID</th><th>Book Image</th><th>Book Name</th><th>Author</th>";
             while ($rows = $results->fetch_array()) {
                 echo "<tr>";
                 echo "<td>" . $rows['book_id'] . "</td>";
+                echo "<td>"."<img
+                src=\"".$rows['book_img']."\"
+                alt=\"book\"
+                width=\"200px\"
+              />";
                 echo "<td>" . $rows['book_name'] . "</td>";
                 echo "<td>" . $rows['author'] . "</td>";
                 echo "</tr>";
@@ -115,6 +119,7 @@ if(isset($bookname) & !empty($bookname)){
     }
 }
 ?>
+<br><br><br><br><br><br>
 </body>
 <footer><div style="padding: 10px">Contact Information</div></footer>
 </html>

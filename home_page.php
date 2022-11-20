@@ -116,7 +116,9 @@ session_start();
       </div>
       <!-- Books -->
       <?php
-      $query = "SELECT * FROM book INNER JOIN genre ON genre.genre_id = book.genre_id";
+      $i = 0;
+
+      $query = "SELECT * FROM book INNER JOIN genre ON genre.genre_id = book.genre_id ORDER BY book_name";
 
       $result = $mysqli->query($query);
 
@@ -135,7 +137,7 @@ session_start();
             Book name: ".$row['book_name']." <br /><br />
             Author: ".$row['author']." <br /><br />
             Genre: ".$row['genre_name']." <br /><br />
-            Location: Y-001 <br /><br />
+            Location: Y-$i <br /><br />
           </div>
           <div class=\"grid-item\" style=\"margin-left: 30px\">
             Book ID: ".$row['book_id']." <br /><br />
@@ -144,6 +146,7 @@ session_start();
           </div>
         </div>
       </div>";
+      $i++;
       }
       ?>
       
