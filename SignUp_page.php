@@ -242,9 +242,9 @@
       {
         echo $mysqli->error;
       }
-      $url = "Location: http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/SignUp_page.php";
+      $url = "Location: http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/SignIn_page.php";
 
-      header("Location: $url");
+      header("Location: ./SignIn_page.php");
     }
     else
     {
