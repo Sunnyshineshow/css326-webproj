@@ -132,7 +132,7 @@
         <div id="box">
             <div id="leftbox", class="split left">
                 <label class="label" ><strong>Book's name</strong></label>
-                <input class="bookname_textbox" type="text" style="top: 32px name="Book_name" "><br>
+                <input class="bookname_textbox" type="text" style="top: 32px" name="Book_name"><br>
 
 
                 <label class="label" style="top:110px;"><strong>Name-Lastname</strong></label>

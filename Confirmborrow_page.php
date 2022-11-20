@@ -147,7 +147,7 @@
       <div id="box">
         <div id="leftbox" , class="split left">
           <label class="label"><strong>Book's name</strong></label>
-          <input class="bookname_textbox" type="text" style="top: 32px" value=<?=$Book_name?>/><br />
+          <input class="bookname_textbox" type="text" style="top: 32px" value='<?=$Book_name?>'/><br />
 
           <label class="label" style="top: 110px"
             ><strong>Name-Lastname</strong></label
@@ -156,7 +156,7 @@
             class="bookname_textbox"
             type="text"
             style="top: 142px"
-            value=<?=$User_nameandlastname?>
+            value='<?php echo $User_nameandlastname;?>'
           /><br />
 
           <label class="label" style="top: 190px"
@@ -166,7 +166,7 @@
             class="bookname_textbox"
             type="text"
             style="top: 252px"
-            value=<?=$Book_name?>
+            value='<?=$Book_name?>'
           /><br />
 
           <label class="label" style="top: 270px"
@@ -176,7 +176,7 @@
             class="bookname_textbox"
             type="text"
             style="top: 362px; width: 50%; height: 40px"
-            value=<?=$User_address?>
+            value='<?=$User_address?>'
           /><br />
         </div>
 
@@ -187,7 +187,7 @@
             class="bookname_textbox"
             type="text"
             style="left: 70px; top: 80px"
-            value=<?=$User_time?>
+            value='<?=$User_time?>'
           /><br />
 
           <!-- <label class="label" ><strong>Address</strong></label><br>
