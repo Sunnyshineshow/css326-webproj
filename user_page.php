@@ -66,13 +66,21 @@ session_start();
       font-size: 30px;
       text-align: center;
     }
+    .header {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #1c3948;
+      text-decoration: none;
+      color: #e4960e;
+      font-size: 65px;
+      text-shadow: 2px 2px 5px #000000;
+    }
   </style>
   <header>
-    <div style="padding: 20px">Librariann</div>
+  <div style="padding: 20px"><a href="./home_page.php" class="header">Librariann</a></div>
   </header>
   <body>
     <div>
-      <a href="./item_page.html"
+      <a href="./item_page.php"
         ><button class="header_button"><strong>Item</strong></button></a
       ><a href="./borrow_page.php"
         ><button class="header_button"><strong>Borrow</strong></button></a
@@ -137,7 +145,7 @@ session_start();
         </p>
 
         </div>
-        <form id="search_area" style="margin-left: 20px; margin-top: 20px">
+        <form id="search_area" style="margin-left: 20px; margin-top: 20px" action="" method="get">
         <h5>Borrowed books</h5>
           <input
             type="text"
@@ -148,23 +156,60 @@ session_start();
               font-size: 20px;
               margin-right: 10px;
             "
+            name="search"
+
+            value="<?php if (isset($_GET['search']) && $_GET['search']) { echo $_GET['search'];} ?>"
           />
           <input type="submit" style="padding: 9px" />
         </form>
       </div>
       <div style="padding: 20px">
         <div class="grid-container">
-          <div class="grid-item">
+          <?php 
+
+          $username = $_SESSION['username'];
+
+          $query = "SELECT user_id FROM user WHERE username = '$username'";
+          $res = $mysqli->query($query);
+          $row = $res->fetch_array();
+          $user_id = $row[0];
+
+          if (isset($_GET['search']) && $_GET['search'])
+          {
+            $query = "SELECT * FROM borrowed_book INNER JOIN book ON borrowed_book.book_id = book.book_id WHERE user_id = $user_id AND book.book_name LIKE '%".$_GET['search']."%'";
+          }
+          else
+          {
+            $query = "SELECT * FROM borrowed_book INNER JOIN book ON borrowed_book.book_id = book.book_id WHERE user_id = $user_id";
+          }
+          
+
+          $res = $mysqli->query($query);
+
+          while($row = $res->fetch_array())
+          {
+
+            $book_name = $row['book_name'];
+            $book_img = $row['book_img'];
+            $expire_date = $row['date_expired'];
+
+            echo "<div class=\"grid-item\">
             <div>
               <img
-                src="assets/book_detail_large.gif"
-                alt="book"
-                width="150px"
+                src=\"$book_img\"
+                alt=\"book\"
+                width=\"150px\"
               />
             </div>
-            <div>Citrus Vol.1</div>
-          </div>
-          <div class="grid-item">
+            <div style=\"font-size: 25px;\">$book_name</div>
+            <div style=\"font-size: 20px;\">Return before: $expire_date</div>
+          </div>";
+          }
+
+          ?>
+          
+
+          <!-- <div class="grid-item">
             <div>
               <img
                 src="assets/book_detail_large (1).gif"
@@ -216,7 +261,7 @@ session_start();
             </div>
             <div>Introduction to the Theory of Computation</div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </body>

@@ -99,18 +99,43 @@
       position: absolute;
       bottom: 0px;
     }
+    .header {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #1c3948;
+      text-decoration: none;
+      color: #e4960e;
+      font-size: 65px;
+      text-shadow: 2px 2px 5px #000000;
+    }
   </style>
 
   <header>
-    <div style="padding: 20px">Librariann</div>
+  <div style="padding: 20px"><a href="./home_page.php" class="header">Librariann</a></div>
   </header>
   
   <body>
-    <div>
-      <a href="./item_page.html"><button class="header_button"><strong>Item</strong></button
-      ></a><a href="./borrow_page.php"><button class="header_button"><strong>Borrow</strong></button
-      ></a><a href="book_page.php"><button class="header_button"><strong>Books</strong></button
-      ></a><a href="SignIn_page.php"><button class="header_button"><strong>Login</strong></button></a>
+  <div>
+      <a href="./item_page.php"
+        ><button class="header_button"><strong>Item</strong></button></a
+      ><a href="./borrow_page.php"
+        ><button class="header_button"><strong>Borrow</strong></button></a
+      ><a href="book_page.php"
+        ><button class="header_button"><strong>Books</strong></button></a
+      ><?php 
+      if (isset($_SESSION['username']) && $_SESSION['username'])
+      {
+        echo "<a href=\"user_page.php\"
+        ><button class=\"header_button\"><strong>User</strong></button></a
+      >";
+      }
+      else
+      {
+        echo "<a href=\"SignIn_page.php\"
+        ><button class=\"header_button\"><strong>Login</strong></button></a
+      >";
+      }
+      
+      ?>
     </div>
 
     <form action="" method="POST">

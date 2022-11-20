@@ -78,7 +78,7 @@ session_start();
   </header>
   <body>
     <div>
-      <a href="./item_page.html"
+      <a href="./item_page.php"
         ><button class="header_button"><strong>Item</strong></button></a
       ><a href="./borrow_page.php"
         ><button class="header_button"><strong>Borrow</strong></button></a
@@ -127,7 +127,7 @@ session_start();
       <?php
       $i = 0;
 
-      $query = "SELECT * FROM book INNER JOIN genre ON genre.genre_id = book.genre_id ORDER BY book_name";
+      $query = "SELECT * FROM book INNER JOIN genre ON genre.genre_id = book.genre_id INNER JOIN bookshelf ON bookshelf.book_id = book.book_id ORDER BY book_name";
 
       $result = $mysqli->query($query);
 
@@ -146,12 +146,12 @@ session_start();
             Book name: ".$row['book_name']." <br /><br />
             Author: ".$row['author']." <br /><br />
             Genre: ".$row['genre_name']." <br /><br />
-            Location: Y-$i <br /><br />
+            Location: ".$row['bookshelf_serial']." <br /><br />
           </div>
           <div class=\"grid-item\" style=\"margin-left: 30px\">
             Book ID: ".$row['book_id']." <br /><br />
             Date Added: ".$row['date_added']." <br /><br />
-            Status: Available <br /><br />
+            Status: ".$row['borrowed_status']." <br /><br />
           </div>
         </div>
       </div>";

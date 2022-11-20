@@ -110,30 +110,48 @@
       position: absolute;
       text-align: center;
     }
+    .header {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #1c3948;
+      text-decoration: none;
+      color: #e4960e;
+      font-size: 65px;
+      text-shadow: 2px 2px 5px #000000;
+    }
   </style>
   <header>
-    <div style="padding: 20px">Librariann</div>
+  <div style="padding: 20px"><a href="./home_page.php" class="header">Librariann</a></div>
   </header>
   <body>
 
-    <div>
-      <a href="./item_page.html"
+  <div>
+      <a href="./item_page.php"
         ><button class="header_button"><strong>Item</strong></button></a
       ><a href="./borrow_page.php"
         ><button class="header_button"><strong>Borrow</strong></button></a
       ><a href="book_page.php"
         ><button class="header_button"><strong>Books</strong></button></a
-      ><a href="SignIn_page.php"
-        ><button class="header_button"><strong>Login</strong></button></a
-      >
+      ><?php 
+      if (isset($_SESSION['username']) && $_SESSION['username'])
+      {
+        echo "<a href=\"user_page.php\"
+        ><button class=\"header_button\"><strong>User</strong></button></a
+      >";
+      }
+      else
+      {
+        echo "<a href=\"SignIn_page.php\"
+        ><button class=\"header_button\"><strong>Login</strong></button></a
+      >";
+      }
+      
+      ?>
     </div>
 
     <?php 
 require_once('connect.php');
 //./Confirmborrow_page.php
 
-if(isset($_POST['Book_name']) && isset($_POST['User_namenlastname']) && isset($_POST['Book_ID']) && isset($_POST['User_telno']) && isset($_POST['User_address']) && isset($_POST['User_time']))
-{
     $isValid = true;
     $book_name = $_POST['Book_name'];
     $client_name = $_POST['User_namenlastname'];
@@ -144,7 +162,7 @@ if(isset($_POST['Book_name']) && isset($_POST['User_namenlastname']) && isset($_
 
     if ($book_name && $client_name && $book_id && $client_telno && $client_address && $client_return_time)
     {
-        $query = "SELECT book_id,book_name FROM book WHERE book_id = $book_id";
+        $query = "SELECT book.book_id,book_name,borrowed_status FROM book INNER JOIN bookshelf ON bookshelf.book_id = book.book_id WHERE book.book_id = $book_id";
 
         $result = $mysqli->query($query);
 
@@ -155,6 +173,13 @@ if(isset($_POST['Book_name']) && isset($_POST['User_namenlastname']) && isset($_
             while ($row=$result->fetch_array())
             {
               $book_name = $row['book_name'];
+              $status = $row['borrowed_status'];
+
+              if ($status != "available")
+              {
+                $isValid = false;
+                echo "Book is not valid";
+              }
             }
         }
         else
@@ -168,7 +193,7 @@ if(isset($_POST['Book_name']) && isset($_POST['User_namenlastname']) && isset($_
         $isValid = false;
         echo "Please fill all forms";
     }
-}
+
 
 ?>
 
@@ -177,14 +202,18 @@ if(isset($_POST['Book_name']) && isset($_POST['User_namenlastname']) && isset($_
 
     <!-- <div id="wrapper"> -->
     <div id="actual_content">
-      <div id="box">
+      <form id="box" action="./borrow_save.php" method="post">
+        
         <div id="leftbox" , class="split left">
+        <input type="hidden" value='<?=$book_id?>' name="book_id">
           <label class="label"><strong>Book's name</strong></label>
+          <input type="hidden" value='<?php echo $book_name;?>' name="book_name">
           <input class="bookname_textbox" type="text" style="top: 32px" value='<?=$book_name?>' disabled/><br />
 
           <label class="label" style="top: 110px"
             ><strong>Name-Lastname</strong></label
           >
+          <input type="hidden" value='<?php echo $client_name;?>' name="client_name">
           <input
             class="bookname_textbox"
             type="text"
@@ -195,6 +224,7 @@ if(isset($_POST['Book_name']) && isset($_POST['User_namenlastname']) && isset($_
           <label class="label" style="top: 190px"
             ><strong>Telephon No.</strong></label
           >
+          <input type="hidden" value='<?=$client_telno?>' name="client_telno">
           <input
             class="bookname_textbox"
             type="text"
@@ -205,6 +235,7 @@ if(isset($_POST['Book_name']) && isset($_POST['User_namenlastname']) && isset($_
           <label class="label" style="top: 270px"
             ><strong>Address</strong></label
           >
+          <input type="hidden" value='<?=$client_address?>' name="client_address">
           <input
             class="bookname_textbox"
             type="text"
@@ -216,6 +247,7 @@ if(isset($_POST['Book_name']) && isset($_POST['User_namenlastname']) && isset($_
         <div id="rightbox" , class="split right">
           <label class="label"><strong>Time to pick up the book</strong></label
           ><br />
+          <input type="hidden" value='<?=$client_return_time?>' name="client_return_time">
           <input
             class="bookname_textbox"
             type="text"
@@ -241,10 +273,11 @@ if(isset($_POST['Book_name']) && isset($_POST['User_namenlastname']) && isset($_
 
           <label class="label" style="top: 190px"
             ><strong>Duration of borrowing</strong></label
-          >
+          ><input type="hidden" value='7' name="duration">
           <input
             class="bookname_textbox"
             type="text"
+            value="7"
             style="left: 70px; top: 310px" disabled
           /><br />
 
@@ -252,7 +285,7 @@ if(isset($_POST['Book_name']) && isset($_POST['User_namenlastname']) && isset($_
             <input type="submit" name="submit" value="Confirm Reserve" <?php if (!$isValid) { echo "disabled";} ?>/>
           </div>
         </div>
-      </div>
+</form>
     </div>
     <!-- </div> -->
   </body>
