@@ -156,6 +156,7 @@
             class="bookname_textbox"
             type="text"
             style="top: 142px"
+            value=<?=$User_nameandlastname?>
           /><br />
 
           <label class="label" style="top: 190px"
