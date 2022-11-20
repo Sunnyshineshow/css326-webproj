@@ -244,7 +244,8 @@
       }
       $url = "Location: http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/SignIn_page.php";
 
-      header("Location: ./SignIn_page.php");
+      echo "Registered";
+      // header("Location: ./SignIn_page.php");
     }
     else
     {

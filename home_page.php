@@ -1,3 +1,8 @@
+<?php 
+require_once('connect.php'); 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -64,15 +69,27 @@
   </header>
   <body>
     <div>
-      <<a href="./item_page.html"
+      <a href="./item_page.html"
         ><button class="header_button"><strong>Item</strong></button></a
       ><a href="./borrow_page.php"
         ><button class="header_button"><strong>Borrow</strong></button></a
       ><a href="book_page.php"
         ><button class="header_button"><strong>Books</strong></button></a
-      ><a href="SignIn_page.php"
-        ><button class="header_button"><strong>Login</strong></button></a
-      >
+      ><?php 
+      if ($_SESSION['username'])
+      {
+        echo "<a href=\"user_page.php\"
+        ><button class=\"header_button\"><strong>User</strong></button></a
+      >";
+      }
+      else
+      {
+        echo "<a href=\"SignIn_page.php\"
+        ><button class=\"header_button\"><strong>Login</strong></button></a
+      >";
+      }
+      
+      ?>
     </div>
     <div id="actual_content">
       <div

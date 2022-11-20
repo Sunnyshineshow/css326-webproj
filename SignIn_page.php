@@ -113,7 +113,7 @@
       ></a><a href="SignIn_page.php"><button class="header_button"><strong>Login</strong></button></a>
     </div>
 
-    <form action="./user_page.html" method="POST">
+    <form action="" method="POST">
     <div>
       <br /><input
         class="Usernamenpass_textbox"
@@ -136,4 +136,92 @@
   </body>
   
   <footer><div style="padding: 10px">Contact Information</div></footer>
+  <?php 
+
+  if (isset($_POST['username']) && isset($_POST['password']))
+  {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $isValid = true;
+
+    if ($username && $password)
+    {
+      foreach (str_split($username) as $char)
+      {
+        if ($char == ";" || $char == "-" || $char == "\'" || $char == "\"")
+        {
+          $isValid = false;
+          break;
+        }
+      }
+    
+      foreach (str_split($password) as $char)
+      {
+        if ($char == ";" || $char == "-" || $char == "\'" || $char == "\"")
+        {
+          $isValid = false;
+          break;
+        }
+      }
+
+      if ($isValid)
+      {
+
+        //Encrypt password
+        $query = "SELECT PASSWORD('$password')";
+
+        $result = $mysqli->query($query);
+
+        $row = $result->fetch_array();
+
+        $password = $row[0];
+
+        //Check
+        $query = "SELECT username,password FROM user WHERE username = '$username'";
+        $db_username = '';
+        $db_pass = '';
+        if ($result = $mysqli->query($query))
+        {
+          if($result->num_rows == 1)
+          {
+            while($row=$result->fetch_array())
+            {
+              $db_username = $row['username'];
+              $db_pass = $row['password'];
+            }
+
+            if ($password == $db_pass)
+            {
+              session_start();
+              $_SESSION['username'] = $username;
+
+              header("Location: ./home_page.php");
+            }
+            else
+            {
+              echo "Incorrect Password";
+            }
+          }
+          else
+          {
+            echo "Data does not existed, or too many data existed";
+          }
+        }
+        else
+        {
+          echo "Error gaining data from db";
+        }
+      }
+      else
+      {
+        echo "Invalid Data";
+      }
+    }
+  }
+
+  
+
+
+  
+  ?>
 </html>
