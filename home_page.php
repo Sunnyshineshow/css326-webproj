@@ -115,30 +115,40 @@ session_start();
         </form>
       </div>
       <!-- Books -->
-      <div style="padding: 35px">
-        <div class="grid-container" style="margin-left: 50px">
-          <div class="grid-item">
+      <?php
+      $query = "SELECT * FROM book INNER JOIN genre ON genre.genre_id = book.genre_id";
+
+      $result = $mysqli->query($query);
+
+      while($row=$result->fetch_array())
+      {
+        echo "<div style=\"padding: 35px\">
+        <div class=\"grid-container\" style=\"margin-left: 50px\">
+          <div class=\"grid-item\">
             <img
-              src="assets/book_detail_large (2).gif"
-              alt="book"
-              width="200px"
+              src=\"assets/book_detail_large (2).gif\"
+              alt=\"book\"
+              width=\"200px\"
             />
           </div>
-          <div class="grid-item" style="margin-left: 30px">
-            Book name: Citrus <br /><br />
-            Author: Zenshu?? <br /><br />
-            Genre: Shoujo, Yuri <br /><br />
+          <div class=\"grid-item\" style=\"margin-left: 30px\">
+            Book name: ".$row['book_name']." <br /><br />
+            Author: ".$row['author']." <br /><br />
+            Genre: ".$row['genre_name']." <br /><br />
             Location: Y-001 <br /><br />
           </div>
-          <div class="grid-item" style="margin-left: 30px">
-            Book ID: CT001 <br /><br />
-            Date Added: 19/10/2022 <br /><br />
+          <div class=\"grid-item\" style=\"margin-left: 30px\">
+            Book ID: ".$row['book_id']." <br /><br />
+            Date Added: ".$row['date_added']." <br /><br />
             Status: Available <br /><br />
           </div>
         </div>
-      </div>
+      </div>";
+      }
+      ?>
+      
       <!-- Books -->
-      <div style="padding: 35px">
+      <!-- <div style="padding: 35px">
         <div class="grid-container" style="margin-left: 50px">
           <div class="grid-item">
             <img src="assets/book_detail_large.gif" alt="book" width="200px" />
@@ -155,7 +165,7 @@ session_start();
             Status: Available <br /><br />
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </body>
   <footer><div style="padding: 10px">Contact Information</div></footer>
