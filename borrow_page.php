@@ -66,7 +66,7 @@
         font: bold;
     }
     .bookname_textbox {
-        width: 40%;
+        width: 25%;
         height: 20px;
         position: absolute;
         background-color: #bebdbd;
@@ -104,8 +104,8 @@
     }
 
     .form-submit-button {
-        top: 380px;
-        left: 280px;
+        top: 360px;
+        left: 350px;
         height: 40px;
         width:150px;
         position:absolute;
@@ -136,34 +136,22 @@
                 <input class="bookname_textbox" type="text" style="top: 142px"><br>
 
 
-                <label class="label" style="top:190px;"><strong>Telephon No.</strong></label>
+                <label class="label" style="top:190px;"><strong>ID number</strong></label>
                 <input class="bookname_textbox" type="text" style="top: 252px"><br>
 
-                <label class="label" style="top:270px;"><strong>Address</strong></label>
-                <input class="bookname_textbox" type="text" style="top: 362px;width:50%;height:40px"><br>
+                <label class="label" style="top:270px;"><strong>Telephone No.</strong></label>
+                <input class="bookname_textbox" type="text" style="top: 362px"><br>
             </div>
 
             <div id="rightbox", class="split right">
-                <label class="label" ><strong>Time to pick up the book</strong></label><br>
-                <input class="bookname_textbox" type="text" style="left: 70px;top: 80px "><br>
+                <label class="label" ><strong>Address</strong></label><br>
+                <input class="bookname_textbox" type="text" style="left:70px;top: 80px;width:50%;height: 80px;"><br>
 
-
-                <!-- <label class="label" ><strong>Address</strong></label><br>
-                <input class="bookname_textbox" type="text" style="left:70px;top: 80px;width:50%;height: 80px;"><br> -->
-
-                <label class="label" style="top:100px;"><strong>Track Number</strong></label>
-                <input class="bookname_textbox" type="text" style="left: 70px;top: 190px "><br>
-
-
-                <!-- <label class="label" style="top:170px"><strong>Time to pick up the book</strong></label><br>
-                <input class="bookname_textbox" type="time" style="left: 70px;top: 260px;width:50%;"><br> -->
-
-                <label class="label" style="top:190px;"><strong>Duration of borrowing</strong></label>
-                <input class="bookname_textbox" type="text" style="left: 70px;top: 310px "><br>
-
+                <label class="label" style="top:170px"><strong>Time to pick up the book</strong></label><br>
+                <input class="bookname_textbox" type="time" style="left: 70px;top: 260px;width:50%;"><br>
 
                 <div class="form-submit-button">
-                <input type="submit" name="submit" value="Confirm Reserve">
+                <input type="submit" name="submit" value="Reserve">
                 </div>
             </div>
 

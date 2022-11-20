@@ -107,13 +107,13 @@
   
   <body>
     <div>
-      <button class="header_button"><strong>Item</strong></button
-      ><a href="./borrow_page.html"><button class="header_button"><strong>Borrow</strong></button
-      ></a><button class="header_button"><strong>Books</strong></button
-      ><button class="header_button"><strong>Login</strong></button>
+      <a href="./item_page.html"><button class="header_button"><strong>Item</strong></button
+      ></a><a href="./borrow_page.php"><button class="header_button"><strong>Borrow</strong></button
+      ></a><a href="book_page.php"><button class="header_button"><strong>Books</strong></button
+      ></a><a href="SignIn_page.php"><button class="header_button"><strong>Login</strong></button></a>
     </div>
 
-    <FORM action="user_page.html" method="POST">
+    <form action="./user_page.html" method="POST">
     <div>
       <br /><input
         class="Usernamenpass_textbox"
@@ -129,12 +129,10 @@
       <div style="margin: 10px"><a href=" ">Forget the password</a></div>
       
     </div>
-
-    <div>
-      <a href="  "> <button class="sign_in_button"><strong>Sign up</strong></button></a>
+  </form>
+  <div>
+      <a href="./SignUp_page.php"><button class="sign_in_button"><strong>Sign up</strong></button></a>
     </div>
-  
-  </FORM>
   </body>
   
   <footer><div style="padding: 10px">Contact Information</div></footer>

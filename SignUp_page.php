@@ -117,10 +117,10 @@
   </header>
   <body>
     <div>
-      <button class="header_button"><strong>Item</strong></button
-      ><button class="header_button"><strong>Borrow</strong></button
-      ><button class="header_button"><strong>Books</strong></button
-      ><button class="header_button"><strong>Login</strong></button>
+    <a href="./item_page.html"><button class="header_button"><strong>Item</strong></button
+      ></a><a href="./borrow_page.php"><button class="header_button"><strong>Borrow</strong></button
+      ></a><a href="book_page.php"><button class="header_button"><strong>Books</strong></button
+      ></a><a href="SignIn_page.php"><button class="header_button"><strong>Login</strong></button></a>
     </div>
     <!-- <div id="wrapper"> -->
     <form id="actual_content" action="" method="post">
@@ -199,19 +199,60 @@
 
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $cfpassword = $_POST['cfpassword'];
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $tel_no = $_POST['tel_no'];
 
-    $q = "INSERT INTO user (username,password,fname,lname,tel_no) VALUES ('$username', PASSWORD('$password'), '$fname','$lname','$tel_no')";
+    $isValid = true;
 
-    if(!$mysqli->query($q))
+    foreach (str_split($username) as $char)
     {
-      echo $mysqli->error;
+      if ($char == ";" || $char == "-" || $char == "\'" || $char == "\"")
+      {
+        $isValid = false;
+        break;
+      }
+    }
+
+    foreach (str_split($password) as $char)
+    {
+      if ($char == ";" || $char == "-" || $char == "\'" || $char == "\"")
+      {
+        $isValid = false;
+        break;
+      }
+    }
+
+    if ($password != $cfpassword)
+    {
+      $isValid = false;
+    }
+
+    if (!$username || !$password || !$cfpassword || !$fname || !$lname || !$tel_no)
+    {
+      $isValid = false;
+    }
+
+    if ($isValid)
+    {
+      $q = "INSERT INTO user (username,password,fname,lname,tel_no) VALUES ('$username', PASSWORD('$password'), '$fname','$lname','$tel_no')";
+
+      if(!$mysqli->query($q))
+      {
+        echo $mysqli->error;
+      }
+      $url = "Location: http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/SignUp_page.php";
+
+      header("Location: $url");
+    }
+    else
+    {
+      echo "Invalid Data";
     }
     //Navigate Here
 
-    //header("Location: ./SignIn_page.php");
+    
   }
   ?>
 </html>

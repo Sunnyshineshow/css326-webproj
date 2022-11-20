@@ -56,12 +56,13 @@
       transition-duration: 0.4s;
       font: 30px Arial, sans-serif;
     }
-    #announcement, #newbook{
+    #announcement,
+    #newbook {
       font-weight: bold;
-        margin-bottom: 10px;
+      margin-bottom: 10px;
     }
 
-    ul{
+    ul {
       list-style-type: none;
       width: 25%;
       margin: 0;
@@ -69,94 +70,135 @@
       overflow: hidden;
       background-color: #eba92a;
     }
-    a{
-        text-decoration: none;
-        text-align: justify;
+    a {
+      text-decoration: none;
+      text-align: justify;
     }
 
-    img{
-        padding: 0 20px 0;
-        align-content: center;
+    img {
+      padding: 0 20px 0;
+      align-content: center;
     }
-    #extra1, #extra2,#extra3,#extra4,#extra5{
-        padding: 0 100px 0;
+    #extra1,
+    #extra2,
+    #extra3,
+    #extra4,
+    #extra5 {
+      padding: 0 100px 0;
     }
-    html{
-        scroll-behavior: smooth;
-        overflow: scroll;
-        overflow-x: hidden;
-    }
-
-    figure{
-        display: inline-block;
-    }
-    figcaption{
-        text-align: center;
+    html {
+      scroll-behavior: smooth;
+      overflow: scroll;
+      overflow-x: hidden;
     }
 
+    figure {
+      display: inline-block;
+    }
+    figcaption {
+      text-align: center;
+    }
   </style>
   <header>
     <div style="padding: 20px">Librariann</div>
   </header>
   <body>
     <div>
-      <button class="header_button"><strong>Item</strong></button
-      ><button class="header_button"><strong>Borrow</strong></button
-      ><button class="header_button"><strong>Books</strong></button
-      ><button class="header_button"><strong>Login</strong></button>
+      <a href="./item_page.html"
+        ><button class="header_button"><strong>Item</strong></button></a
+      ><a href="./borrow_page.php"
+        ><button class="header_button"><strong>Borrow</strong></button></a
+      ><a href="book_page.php"
+        ><button class="header_button"><strong>Books</strong></button></a
+      ><a href="SignIn_page.php"
+        ><button class="header_button"><strong>Login</strong></button></a
+      >
     </div>
     <div class="subhead" id="announcement">Announcement</div>
 
     <marquee behavior="scroll" direction="left" scrollamount="10">
-        <figure>
-            <img src="\css326\assets\400.png" style="width: 250px;height: 168px" id="extra1">
-            <a href="https://library.siit.tu.ac.th/blog/2022/01/siit-library-prevention-of-covid19"><figcaption>SIIT Library: Prevention of COVID-19</figcaption></a>
-        </figure>
-        <figure>
-            <img src="\css326\assets\760.png" style="width: 250px;height: 172px" id="extra2">
-            <a href="https://library.siit.tu.ac.th/th/blog/2022/09/openathens"><figcaption>OpenAthens</figcaption></a>
-        </figure>
-        <figure>
-            <img src="\css326\assets\112.png" style="width: 250px;height: 193px" id="extra3" >
-            <a href="https://library.siit.tu.ac.th/th/blog/2022/11/data-science-from-scratch--first-principles-with-python"><figcaption>Top Book Borrowed!</figcaption></a>
-        </figure>
-        <figure>
-            <img src="\css326\assets\132.png" style="width: 250px;height: 133px" id="extra4">
-            <a href="https://library.siit.tu.ac.th/blog/2022/07/newscenter"><figcaption>NEWSCenter</figcaption></a>
-        </figure>
-        <figure>
-            <img src="\css326\assets\100.png" style="width: 250px;height: 136px" id="extra5">
-            <a href="https://library.siit.tu.ac.th/blog/2021/10/ethesis-format-checking-services"><figcaption>E-thesis format checking services</figcaption></a>
-        </figure>
+      <figure>
+        <img
+          src="./assets/400.png"
+          style="width: 250px; height: 168px"
+          id="extra1"
+        />
+        <a
+          href="https://library.siit.tu.ac.th/blog/2022/01/siit-library-prevention-of-covid19"
+          ><figcaption>SIIT Library: Prevention of COVID-19</figcaption></a
+        >
+      </figure>
+      <figure>
+        <img
+          src="\css326\assets\760.png"
+          style="width: 250px; height: 172px"
+          id="extra2"
+        />
+        <a href="https://library.siit.tu.ac.th/th/blog/2022/09/openathens"
+          ><figcaption>OpenAthens</figcaption></a
+        >
+      </figure>
+      <figure>
+        <img
+          src="\css326\assets\112.png"
+          style="width: 250px; height: 193px"
+          id="extra3"
+        />
+        <a
+          href="https://library.siit.tu.ac.th/th/blog/2022/11/data-science-from-scratch--first-principles-with-python"
+          ><figcaption>Top Book Borrowed!</figcaption></a
+        >
+      </figure>
+      <figure>
+        <img
+          src="\css326\assets\132.png"
+          style="width: 250px; height: 133px"
+          id="extra4"
+        />
+        <a href="https://library.siit.tu.ac.th/blog/2022/07/newscenter"
+          ><figcaption>NEWSCenter</figcaption></a
+        >
+      </figure>
+      <figure>
+        <img
+          src="\css326\assets\100.png"
+          style="width: 250px; height: 136px"
+          id="extra5"
+        />
+        <a
+          href="https://library.siit.tu.ac.th/blog/2021/10/ethesis-format-checking-services"
+          ><figcaption>E-thesis format checking services</figcaption></a
+        >
+      </figure>
     </marquee>
-        <br>
+    <br />
 
     <div>
-        <div class="subhead" id="newbook">New Book Arrived !!!</div>
-        <figure>
-            <img src="\css326\assets\123.jpg" style="width: 300px;height: 199px">
-            <figcaption>It Starts With Us</figcaption>
-        </figure>
-        <figure>
-            <img src="\css326\assets\124.jpg" style="width: 300px;height: 199px">
-            <figcaption>Faith Still Moves Mountains</figcaption>
-        </figure>
-        <figure>
-            <img src="\css326\assets\125.jpg" style="width: 300px;height: 199px">
-            <figcaption>The Light We Carry</figcaption>
-        </figure>
-        <figure>
-            <img src="\css326\assets\126.jpg" style="width: 300px;height: 199px">
-            <figcaption>Diary of a Wimpy Kid: Diaper Overlode</figcaption>
-        </figure>
-        <figure>
-            <img src="\css326\assets\127.jpg" style="width: 150px;height: 199px">
-            <figcaption>Think Again</figcaption>
-        </figure>
-            <br>
-            <br>
-            <br>
-            <br>
+      <div class="subhead" id="newbook">New Book Arrived !!!</div>
+      <figure>
+        <img src="\css326\assets\123.jpg" style="width: 300px; height: 199px" />
+        <figcaption>It Starts With Us</figcaption>
+      </figure>
+      <figure>
+        <img src="\css326\assets\124.jpg" style="width: 300px; height: 199px" />
+        <figcaption>Faith Still Moves Mountains</figcaption>
+      </figure>
+      <figure>
+        <img src="\css326\assets\125.jpg" style="width: 300px; height: 199px" />
+        <figcaption>The Light We Carry</figcaption>
+      </figure>
+      <figure>
+        <img src="\css326\assets\126.jpg" style="width: 300px; height: 199px" />
+        <figcaption>Diary of a Wimpy Kid: Diaper Overlode</figcaption>
+      </figure>
+      <figure>
+        <img src="\css326\assets\127.jpg" style="width: 150px; height: 199px" />
+        <figcaption>Think Again</figcaption>
+      </figure>
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   </body>
   <footer><div style="padding: 10px">Contact Information</div></footer>
