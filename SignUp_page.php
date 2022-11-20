@@ -123,7 +123,7 @@
       ></a><a href="SignIn_page.php"><button class="header_button"><strong>Login</strong></button></a>
     </div>
     <!-- <div id="wrapper"> -->
-    <form id="actual_content" action="" method="post">
+    <form id="actual_content" action="checkfield.php" method="post">
       <div id="box">
         <div id="leftbox" , class="split left">
           <label class="label"><strong>Name</strong></label>
@@ -192,68 +192,5 @@
   </form>
   </body>
   <footer><div style="padding: 10px">Contact Information</div></footer>
-
-  <?php 
-  if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['cfpassword']) &&isset($_POST['fname']) &&isset($_POST['lname']) &&isset($_POST['tel_no']))
-  {
-
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $cfpassword = $_POST['cfpassword'];
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $tel_no = $_POST['tel_no'];
-
-    $isValid = true;
-
-    foreach (str_split($username) as $char)
-    {
-      if ($char == ";" || $char == "-" || $char == "\'" || $char == "\"")
-      {
-        $isValid = false;
-        break;
-      }
-    }
-
-    foreach (str_split($password) as $char)
-    {
-      if ($char == ";" || $char == "-" || $char == "\'" || $char == "\"")
-      {
-        $isValid = false;
-        break;
-      }
-    }
-
-    if ($password != $cfpassword)
-    {
-      $isValid = false;
-    }
-
-    if (!$username || !$password || !$cfpassword || !$fname || !$lname || !$tel_no)
-    {
-      $isValid = false;
-    }
-
-    if ($isValid)
-    {
-      $q = "INSERT INTO user (username,password,fname,lname,tel_no) VALUES ('$username', PASSWORD('$password'), '$fname','$lname','$tel_no')";
-
-      if(!$mysqli->query($q))
-      {
-        echo $mysqli->error;
-      }
-      $url = "Location: http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/SignIn_page.php";
-
-      echo "Registered";
-      // header("Location: ./SignIn_page.php");
-    }
-    else
-    {
-      echo "Invalid Data";
-    }
-    //Navigate Here
-
-    
-  }
   ?>
 </html>
