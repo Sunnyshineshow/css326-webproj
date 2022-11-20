@@ -135,7 +135,7 @@
     $User_address = $_POST["User_address"];
     $User_time = $_POST["User_time"];
 
-    echo $Book_name. " ". $User_nameandlastname. " ". $Book_ID. " ". $User_telno. " ". $User_address. " ". $User_time. " ".;
+    echo $Book_name. " ". $User_nameandlastname. " ". $Book_ID. " ". $User_telno. " ". $User_address. " ". $User_time. " ";
     
     ?>
 
