@@ -125,7 +125,7 @@
       ></a><a href="book_page.php"><button class="header_button"><strong>Books</strong></button
       ></a><a href="SignIn_page.php"><button class="header_button"><strong>Login</strong></button></a>
 </div>
-<form action ="./Confirmborrow_page.php" method="POST">
+<form action ="./Confirmborrow_page.php" method="post">
 
 <!-- <div id="wrapper"> -->
     <div id="actual_content">

@@ -1,3 +1,4 @@
+<?php require_once('connect.php')?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -127,17 +128,49 @@
       >
     </div>
 
-    <?php
-    $Book_name = $_POST["Book_name"];
-    $User_nameandlastname = $_POST["User_namenlastname"];
-    $Book_ID = $_POST["Book_ID"];
-    $User_telno = $_POST["User_telno"];
-    $User_address = $_POST["User_address"];
-    $User_time = $_POST["User_time"];
+    <?php 
+require_once('connect.php');
+//./Confirmborrow_page.php
 
-    echo $Book_name. " ". $User_nameandlastname. " ". $Book_ID. " ". $User_telno. " ". $User_address. " ". $User_time. " ";
-    
-    ?>
+if(isset($_POST['Book_name']) && isset($_POST['User_namenlastname']) && isset($_POST['Book_ID']) && isset($_POST['User_telno']) && isset($_POST['User_address']) && isset($_POST['User_time']))
+{
+    $isValid = true;
+    $book_name = $_POST['Book_name'];
+    $client_name = $_POST['User_namenlastname'];
+    $book_id = $_POST['Book_ID'];
+    $client_telno = $_POST['User_telno'];
+    $client_address = $_POST['User_address'];
+    $client_return_time = $_POST['User_time'];
+
+    if ($book_name && $client_name && $book_id && $client_telno && $client_address && $client_return_time)
+    {
+        $query = "SELECT book_id,book_name FROM book WHERE book_id = $book_id";
+
+        $result = $mysqli->query($query);
+
+        if ($result->num_rows == 1)
+        {
+            //Gogo
+            $isValid = true;
+            while ($row=$result->fetch_array())
+            {
+              $book_name = $row['book_name'];
+            }
+        }
+        else
+        {
+            $isValid = false;
+            echo "No such book existed";
+        }
+    }
+    else
+    {
+        $isValid = false;
+        echo "Please fill all forms";
+    }
+}
+
+?>
 
 
 
@@ -147,7 +180,7 @@
       <div id="box">
         <div id="leftbox" , class="split left">
           <label class="label"><strong>Book's name</strong></label>
-          <input class="bookname_textbox" type="text" style="top: 32px" value='<?=$Book_name?>'/><br />
+          <input class="bookname_textbox" type="text" style="top: 32px" value='<?=$book_name?>' disabled/><br />
 
           <label class="label" style="top: 110px"
             ><strong>Name-Lastname</strong></label
@@ -156,7 +189,7 @@
             class="bookname_textbox"
             type="text"
             style="top: 142px"
-            value='<?php echo $User_nameandlastname;?>'
+            value='<?php echo $client_name;?>' disabled
           /><br />
 
           <label class="label" style="top: 190px"
@@ -166,7 +199,7 @@
             class="bookname_textbox"
             type="text"
             style="top: 252px"
-            value='<?=$Book_name?>'
+            value='<?=$client_telno?>' disabled
           /><br />
 
           <label class="label" style="top: 270px"
@@ -176,7 +209,7 @@
             class="bookname_textbox"
             type="text"
             style="top: 362px; width: 50%; height: 40px"
-            value='<?=$User_address?>'
+            value='<?=$client_address?>' disabled
           /><br />
         </div>
 
@@ -187,7 +220,7 @@
             class="bookname_textbox"
             type="text"
             style="left: 70px; top: 80px"
-            value='<?=$User_time?>'
+            value='<?=$client_return_time?>' disabled
           /><br />
 
           <!-- <label class="label" ><strong>Address</strong></label><br>
@@ -199,7 +232,7 @@
           <input
             class="bookname_textbox"
             type="text"
-            style="left: 70px; top: 190px"
+            style="left: 70px; top: 190px" disabled
             
           /><br />
 
@@ -212,11 +245,11 @@
           <input
             class="bookname_textbox"
             type="text"
-            style="left: 70px; top: 310px"
+            style="left: 70px; top: 310px" disabled
           /><br />
 
           <div class="form-submit-button">
-            <input type="submit" name="submit" value="Confirm Reserve" />
+            <input type="submit" name="submit" value="Confirm Reserve" <?php if (!$isValid) { echo "disabled";} ?>/>
           </div>
         </div>
       </div>
