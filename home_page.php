@@ -76,7 +76,7 @@ session_start();
       ><a href="book_page.php"
         ><button class="header_button"><strong>Books</strong></button></a
       ><?php 
-      if ($_SESSION['username'])
+      if (isset($_SESSION['username']) && $_SESSION['username'])
       {
         echo "<a href=\"user_page.php\"
         ><button class=\"header_button\"><strong>User</strong></button></a
@@ -126,7 +126,7 @@ session_start();
         <div class=\"grid-container\" style=\"margin-left: 50px\">
           <div class=\"grid-item\">
             <img
-              src=\"assets/book_detail_large (2).gif\"
+              src=\"".$row['book_img']."\"
               alt=\"book\"
               width=\"200px\"
             />
