@@ -99,9 +99,10 @@ session_start();
           font-family: Arial, Helvetica, sans-serif;
         "
       >
-        <form id="search_area" style="margin-left: 20px; margin-top: 20px">
+        <form id="search_area" style="margin-left: 20px; margin-top: 20px" action="search.php" method="POST">
           <input
             type="text"
+            name="bookname"
             placeholder="Type to search..."
             style="
               width: 30%;
