@@ -119,6 +119,8 @@
       ><a href="book_page.php"
         ><button class="header_button"><strong>Books</strong></button></a
       ><?php 
+
+      session_start();
       if (isset($_SESSION['username']) && $_SESSION['username'])
       {
         echo "<a href=\"user_page.php\"
