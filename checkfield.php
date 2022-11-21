@@ -10,10 +10,7 @@ $lname = $_POST['lname'];
 $tel_no = $_POST['tel_no'];
 $isValid = true;
 
-$mysqli = new mysqli('localhost','root','', 'css326');
-if ($mysqli -> connect_errno) {
-    echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
-    exit();}
+require('connect.php');
 
 if ($_SERVER['REQUEST_METHOD']=='POST' & isset($username,$password,$cfpassword,$fname,$lname,$tel_no)) {
 
@@ -43,8 +40,10 @@ if ($_SERVER['REQUEST_METHOD']=='POST' & isset($username,$password,$cfpassword,$
         if (!$mysqli->query($q)) {
             echo "Insert failed.".$mysqli.error;
         }
+        session_start();
+        $_SESSION['username'] = $username;
         $mysqli->close();
-        header('Location:user_page.html');
+        header('Location:user_page.php');
 
     }
 }
