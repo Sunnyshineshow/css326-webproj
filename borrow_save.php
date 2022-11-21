@@ -21,10 +21,20 @@ $query = "SELECT collection_id FROM bookshelf WHERE book_id = $book_id";
 $res = $mysqli->query($query);
 $row = $res->fetch_array();
 
+
+
+
 $collection_id = $user_id[0];
 
-$query = "INSERT INTO borrowed_book (book_id,user_id,collection_id,date_borrowed,date_expired) VALUES
-($book_id,$user_id,$collection_id,CURDATE(),CURDATE()+7)";
+$query = "SELECT SHA('$track_number')";
+$res = $mysqli->query($query);
+$row = $res->fetch_array();
+
+$track_number_encrypted = $row[0];
+
+
+$query = "INSERT INTO borrowed_book (book_id,user_id,collection_id,date_borrowed,date_expired,trackingNo) VALUES
+($book_id,$user_id,$collection_id,CURDATE(),CURDATE()+7,'$track_number_encrypted')";
 
 if ($mysqli->query($query))
 {

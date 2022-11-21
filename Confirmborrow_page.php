@@ -145,6 +145,8 @@
       >";
       }
       
+
+
       ?>
     </div>
 
@@ -193,6 +195,12 @@ require_once('connect.php');
         $isValid = false;
         echo "Please fill all forms";
     }
+
+    $query = "SELECT SHA('$track_number')";
+    $res = $mysqli->query($query);
+    $row = $res->fetch_array();
+
+    $track_number_encrypted = $row[0];
 
 
 ?>
@@ -265,7 +273,7 @@ require_once('connect.php');
             class="bookname_textbox"
             type="text"
             style="left: 70px; top: 190px" disabled
-            
+            value= "<?=$track_number_encrypted?>"
           /><br />
 
           <!-- <label class="label" style="top:170px"><strong>Time to pick up the book</strong></label><br>
