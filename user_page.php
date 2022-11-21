@@ -142,6 +142,10 @@ session_start();
         }
         ?>
 
+        <form action="./logout.php" method="post">
+          <input type="submit" value="Log Out">
+        </form>
+
         </p>
 
         </div>
